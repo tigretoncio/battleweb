@@ -9,7 +9,7 @@ describe Player do
   end
 
   it "on attack, reduces player2's HP" do
-    expect{ player.attack }.to change{player.hp}.by -Player::DAMAGE
+    expect{ player.receive_attack }.to change{player.hp}.by -Player::DAMAGE
   end
 
 end
