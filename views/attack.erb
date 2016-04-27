@@ -1,1 +1,5 @@
-<%= @player1 %> successfully attacked <%= @player2 %>
+<% @player2.attack %>
+<%= @player1.name %> successfully attacked <%= @player2.name %>
+<form action="/play" method="get">
+    <input type= "submit" value= "Continue Fighting!" >
+</form>
