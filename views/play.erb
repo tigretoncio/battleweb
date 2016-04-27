@@ -1,2 +1,6 @@
 <%= @player1 %> vs <%= @player2 %> FIGHT!
 <p> Hit points: 25 </p>
+<form action="/attack" method="get">
+<input type="submit" value="Attack <%= @player2 %>">
+</form>
+
