@@ -24,10 +24,19 @@ enable :sessions
     erb(:play)
   end
 
+  get '/game_over' do
+    @game = $game
+    erb(:game_over)
+  end
+
   get '/attack' do
     @game = $game
     $game.attack(@game.opponent)
-    erb(:attack)
+    if @game.loser_player
+      erb(:game_over)
+    else
+      erb(:attack)
+    end
   end
 
   # start the server if ruby file executed directly

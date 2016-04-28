@@ -27,4 +27,12 @@ let(:player2) { double :player2, hp: 90}
 
   end
 
+  context '#check_loser' do
+    let(:player1) { double :player1, hp: 0 }
+    it "allows a player to lose a game" do
+      game.check_loser
+      expect(game.loser_player).to eq player1
+    end
+  end
+
 end

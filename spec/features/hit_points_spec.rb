@@ -21,4 +21,12 @@ feature "Hit Points", :type => :feature do
     expect(page).to have_content "Hit points: #{Player::HP}"
     #expect(page).to have_text("Hit points: #{Player::HP - Player::DAMAGE}")
   end
+
+  scenario "determines the winner" do
+    @game = $game
+    sign_in_and_play
+    losing_game
+    click_button("Attack Max")
+    expect(page).to have_text("#{@game.winner.name} wins the game")
+  end
 end
