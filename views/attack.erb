@@ -1,4 +1,4 @@
-<%= @game.player1.name %> successfully attacked <%= @game.player2.name %>
+<%= @game.current_player.name %> successfully attacked <%= @game.opponent.name %>
 <form action="/play" method="get">
     <input type= "submit" value= "Continue Fighting!" >
 </form>
