@@ -1,5 +1,6 @@
 class Game
 
+
   attr_reader :player1, :player2, :current_player, :opponent, :loser_player
 
   def initialize(player1, player2)
@@ -7,6 +8,14 @@ class Game
     @player2 = player2
     @current_player = player1
     @opponent = player2
+  end
+
+  def self.create(player1, player2)
+    @game = self.new(player1, player2)
+  end
+
+  def self.instance
+    @game
   end
 
   def attack(player)

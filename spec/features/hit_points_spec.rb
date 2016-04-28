@@ -23,10 +23,10 @@ feature "Hit Points", :type => :feature do
   end
 
   scenario "determines the winner" do
-    @game = $game
+    #@game = $game
     sign_in_and_play
     losing_game
     click_button("Attack Max")
-    expect(page).to have_text("#{@game.winner.name} wins the game")
+    expect(page).to have_text("wins the game")
   end
 end

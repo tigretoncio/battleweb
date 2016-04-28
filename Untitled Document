@@ -1,0 +1,3 @@
+p_sergio = Player.new("Sergio",100)
+p_nick = Player.new("Nick", 100)
+g = Game.mygame(p_sergio,p_nick)

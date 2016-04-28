@@ -7,31 +7,36 @@ class Battle < Sinatra::Base
 
 enable :sessions
 
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb(:index)
   end
 
+# replace all $game by @temp
   post '/names' do
     player1 = Player.new(params[:player_1_name])
     player2 = Player.new(params[:player_2_name])
-    $game = Game.new(player1, player2)
+    @game = Game.create(player1, player2)
     redirect ('/play')
   end
 
   get '/play' do
-    @game = $game
-    $game.switch
+    #@game = @temp
+    @game.switch
     erb(:play)
   end
 
   get '/game_over' do
-    @game = $game
+    #@game = @temp
     erb(:game_over)
   end
 
   get '/attack' do
-    @game = $game
-    $game.attack(@game.opponent)
+    #@game = @temp
+    @game.attack(@game.opponent)
     if @game.loser_player
       erb(:game_over)
     else
