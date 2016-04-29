@@ -5,12 +5,12 @@ def sign_in_and_play
   click_button "Play"
 end
 
-def losing_game
-  sign_in_and_play
-  19.times do
-    click_button("Attack Max")
-    click_button("Continue Fighting!")
-    click_button("Attack Sergio")
-    click_button("Continue Fighting!")
-  end
+def losing_game_max
+  allow(Kernel).to receive(:rand).and_return(30)
+  click_button("Attack Max")
+end
+
+def losing_game_sergio
+  allow(Kernel).to receive(:rand).and_return(30)
+  click_button("Attack Sergio")
 end

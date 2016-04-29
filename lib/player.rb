@@ -2,7 +2,7 @@ class Player
 
   attr_reader :name, :hp
 
-  HP = 10
+  HP = 30
   DAMAGE = 5
 
   def initialize(name, hp = HP)
@@ -10,8 +10,8 @@ class Player
     @hp = hp
   end
 
-  def receive_attack
-    @hp -= DAMAGE
+  def receive_attack(points=Kernel.rand(11))
+    @hp -= points
   end
 
 end
